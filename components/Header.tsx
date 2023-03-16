@@ -1,24 +1,26 @@
 import React from "react";
 import Image from "next/image";
-import { AiOutlineHeart } from "react-icons/Ai";
+import { AiFillHeart } from "react-icons/Ai";
 import { AiOutlineSearch } from "react-icons/Ai";
 import { HiOutlineMenuAlt4 } from "react-icons/Hi";
+import Link from "next/link";
 import { useState } from "react";
 
 function Header() {
   const [active, setActive] = useState(false);
   console.log(active);
   return (
-    <header className="flex tracking-wide px-10 justify-between text-lg w-full text-white hover:bg-white group items-center py-6 transition duration-200">
+    <header className="flex px-10 justify-between text-lg w-full text-white hover:bg-white group items-center py-2 absolute z-10 font-author transition duration-300">
       {/* Top */}
-      <div className="flex items-center gap-4 group-hover:text-black transition duration-500">
-        <div className="flex items-center text-xl ">
-          <AiOutlineHeart className="text-2xl " />
-          <button className="hidden md:flex">Collection</button>
+      <div className="text-xl group-hover:text-black transition duration-300 gap-8 flex mt-8">
+        <div className="flex items-center hover:text-green-900">
+          <HiOutlineMenuAlt4 className="text-xl" />
+          <button className="hidden md:flex pl-1">Menu</button>
         </div>
-        <div className="flex items-center text-xl">
-          <AiOutlineSearch className="text-2xl" />
-          <button className="hidden md:flex">Search</button>
+        <div className="items-center xl:flex hidden gap-5">
+          <Link href="/">Watches</Link>
+          <Link href="/">World of Rolex</Link>
+          <Link href="/">Store Locator</Link>
         </div>
       </div>
       {/* Mid */}
@@ -45,9 +47,15 @@ function Header() {
         />
       </div>
       {/* Bottom */}
-      <div className="flex items-center text-xl group-hover:text-black transition duration-200">
-        <HiOutlineMenuAlt4 className="text-2xl" />
-        <button className="hidden md:flex pl-1">The list</button>
+      <div className="flex items-center gap-4 group-hover:text-black transition duration-300 mt-8">
+        <div className="flex items-center text-xl gap-1 hover:text-green-900  group">
+          <AiOutlineSearch className="text-xl " />
+          <button className="hidden md:flex ">Search</button>
+        </div>
+        <div className="flex items-center text-xl gap-1 hover:text-green-900">
+          <AiFillHeart className="text-xl hover:text-green-900" />
+          <button className="hidden md:flex ">Collection</button>
+        </div>
       </div>
     </header>
   );
